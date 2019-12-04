@@ -40,9 +40,9 @@ def home():
                      'sum(food.fat) as fat, '
                      'sum(food.calories ) as cal '
                      'from log_date '
-                     'inner join food_date '
+                     'left join food_date '
                      'on food_date.log_date_id = log_date.id '
-                     'join food '
+                     'left join food '
                      'on food.id = food_date.food_id '
                      'group by log_date.id order by entry_date desc ')
     results = cur.fetchall()
